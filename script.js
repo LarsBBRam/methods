@@ -6,7 +6,7 @@
 //an object does not have an index. instead each item are like properties.
 
 const user = {
-  firstName: "Petter",
+  firstName: "Petter", //This is a KEY-VALUE pair, pairing a KEY and a Value (duuh)
   lastName: "Hansen",
   age: 34,
   hobbies: ["Skiing", "Rogging", "Reading"],
@@ -104,11 +104,29 @@ const people = [
 for (let i = 0; i < people.length; i++) {
   //   console.log(people[i].name);
   //   console.log(people[i].hobbies[2]);
-  const randomHobby = people[i].hobbies[Math.floor(Math.random() * 2)];
+  const randomHobby = people[i].hobbies[Math.floor(Math.random() * 3)];
   people[i].summary = `${people[i].name} is a ${people[i].age} year old ${
+    //Here we use a turnery
     people[i].male ? "man" : "woman"
   } who likes ${randomHobby} among other things.`;
   console.log(people[i].summary);
 }
 
+console.log(people);
+
+//Let's use a for of loop! it would remove the need to write [i] and give us a slightly easier time.
+// how would we get the age of all the people summed?
+
+let combinedAge = 0;
+
+for (let person of people) {
+  combinedAge += person.age;
+}
+console.log(combinedAge);
+
+// here we can add a title, either mr or ms
+
+for (let peep of people) {
+  peep.title = peep.male ? "Mr." : "Ms.";
+}
 console.log(people);
